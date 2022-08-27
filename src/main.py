@@ -12,6 +12,17 @@ logging.basicConfig(
 API_KEY = os.environ.get('API_KEY')
 
 def start(update: Update, context: CallbackContext):
+    """
+    `start` is a function that takes two arguments, `update` and `context`, and sends a message to the
+    chat that the update originated from
+    
+    :param update: This is the update object that contains all the information about the incoming
+    message
+    :type update: Update
+    :param context: This is the context of the message. It contains all the information about the
+    message
+    :type context: CallbackContext
+    """
     context.bot.send_message(chat_id=update.effective_chat.id, text="Hello, World!")
 
 def ping(update: Update, context: CallbackContext):
@@ -19,6 +30,9 @@ def ping(update: Update, context: CallbackContext):
 
 def unknown(update: Update, context: CallbackContext):
     context.bot.send_message(chat_id=update.effective_chat.id, text="Sorry, I didn't understand that command, type /help for help")
+
+def help(update: Update, context: CallbackContext):
+    context.bot.send_message(chat_id=(update.effective_chat.id, text="bruh fuck off")
 
 
 if __name__ == '__main__':
